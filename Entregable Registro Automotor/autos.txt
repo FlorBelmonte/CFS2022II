@@ -1,0 +1,1 @@
+ChevroletOnix,2018,azul;FordFiesta,2020,negro;FiatPunto,2021,rojo;FordKa,2014,negro;ChevroletCorsa,2018,azul;ChevroletTracker,2022,gris;FiatArgo,2020,rojo
