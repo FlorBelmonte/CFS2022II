@@ -17,12 +17,20 @@ class Empleado extends Trabajador {
         super(nombre, puesto, telefono)
         this.sueldo = sueldo;
     }
-    public calcularImpuestos(){
-       this.sueldo = this.sueldo - (this.sueldo*0.3);
+
+    public calcularAumento(){
+        let sueldoActual: number = this.sueldo
+        let nuevoSueldo : number;
+        if ( 0 < sueldoActual && sueldoActual <= 50000 ) {
+            nuevoSueldo = sueldoActual * 1.2;
+            console.log("Le corresponde un aumento del 20%");
+    
+    }
     }
 }
-let empleado1: Empleado = new Empleado('Eduardo Dominguez', 'jefe De Area', 223564747, 60.000)
-let empleado2: Empleado = new Empleado('Cristian Lopez', 'cadete', 22345783, 50.000)
-console.log(empleado1.calcularImpuestos)
-console.log(empleado2.calcularImpuestos)
-
+let empleado1: Empleado = new Empleado('Eduardo Dominguez', 'jefe De Area', 223564747, 60000)
+let empleado2: Empleado = new Empleado('Cristian Lopez', 'cadete', 22345783, 50000)
+let empleado3: Empleado = new Empleado ('Marcela Lopez', 'cadete', 223467584, 45000 )
+console.log(empleado1.calcularAumento())
+console.log(empleado2.calcularAumento())
+console.log(empleado3.calcularAumento())

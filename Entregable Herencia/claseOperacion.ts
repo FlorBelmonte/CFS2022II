@@ -27,5 +27,6 @@ class Resta extends Operacion{
 
 let sumaNumeros : Suma = new Suma(10, 16)
 let restaNumeros : Resta = new Resta (23, 20)
-console.log(sumaNumeros)
-console.log(restaNumeros)
+
+console.log(sumaNumeros.calcularSuma())
+console.log(restaNumeros.calcularResta())
