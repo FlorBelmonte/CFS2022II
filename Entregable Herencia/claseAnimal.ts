@@ -9,7 +9,7 @@ class Animal {
         this.nombre = nombre;
         this.velocidad = velocidad;
     }
-public calcularVelocidad(){
+public mostrarVelocidad(){
     console.log(`${this.nombre} corre a una velocidad de ${this.velocidad}.`)
 }
 }
@@ -23,6 +23,7 @@ class animalesVeloces extends Animal {
 }
 let animal1: animalesVeloces = new animalesVeloces('conejo blanco', 50, 5)
 let animal2: animalesVeloces = new animalesVeloces('chita', 100, 60)
-
-console.log(animal1.calcularVelocidad)
-console.log(animal2.calcularVelocidad)
+let animal3: animalesVeloces = new animalesVeloces("Halcon", 90, 45)
+console.log(animal1.mostrarVelocidad())
+console.log(animal2.mostrarVelocidad())
+console.log(animal3.mostrarVelocidad())

@@ -1,58 +1,78 @@
 "use strict";
-exports.__esModule = true;
-var fs = require("fs");
-var Auto = /** @class */ (function () {
-    function Auto(marca, modelo, color) {
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const fs = __importStar(require("fs"));
+class Auto {
+    constructor(marca, modelo, color) {
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
     }
-    return Auto;
-}());
-var RegistroAutomotor = /** @class */ (function () {
-    function RegistroAutomotor(listaAutos) {
+}
+class RegistroAutomotor {
+    constructor(listaAutos) {
         this.listaAutos = listaAutos;
     }
-    RegistroAutomotor.prototype.getListaAutos = function () {
+    getListaAutos() {
         return this.listaAutos;
-    };
-    return RegistroAutomotor;
-}());
-var GestorDeArchivos = /** @class */ (function () {
-    function GestorDeArchivos(txtFileLocation) {
-        var archivoTxt = fs.readFileSync(txtFileLocation, 'utf-8');
+    }
+}
+class GestorDeArchivos {
+    constructor(txtFileLocation) {
+        let archivoTxt = fs.readFileSync(txtFileLocation, 'utf-8');
         this.arregloString = archivoTxt.split(';');
     }
-    GestorDeArchivos.prototype.mostrarArreglo = function () {
+    mostrarArreglo() {
         console.log(this.arregloString);
-    };
-    GestorDeArchivos.prototype.getArregloString = function () {
+    }
+    getArregloString() {
         return this.arregloString;
-    };
-    return GestorDeArchivos;
-}());
+    }
+}
 //Funcion para agregar un nuevo Auto 
 function agregarAuto(auto, arrayAutos) {
-    var propiedadAuto = auto.split(',');
-    var marca = propiedadAuto[0];
-    var modelo = Number(propiedadAuto[1]);
-    var color = propiedadAuto[2];
-    var nuevoAuto = new Auto(marca, modelo, color);
+    let propiedadAuto = auto.split(',');
+    let marca = propiedadAuto[0];
+    let modelo = Number(propiedadAuto[1]);
+    let color = propiedadAuto[2];
+    let nuevoAuto = new Auto(marca, modelo, color);
     arrayAutos.push(nuevoAuto);
 }
 function borrarAuto(arrayAutos, position) {
-    var readlineSync = require('readline-sync');
-    var marca = readlineSync.question("Ingrese la marca: ");
-    var modelo = Number(readlineSync.question("Ingrese el modelo: "));
-    var color = readlineSync.question("Ingrese el color: ");
-    var nuevoAuto = new Auto(marca, modelo, color);
+    let readlineSync = require('readline-sync');
+    let marca = readlineSync.question("Ingrese la marca: ");
+    let modelo = Number(readlineSync.question("Ingrese el modelo: "));
+    let color = readlineSync.question("Ingrese el color: ");
+    let nuevoAuto = new Auto(marca, modelo, color);
     delete arrayAutos[position];
     arrayAutos[position] = nuevoAuto;
 }
 //Inicio programa 
-var datos = new GestorDeArchivos('autos.txt');
-var arrayAutos = [];
-for (var i = 0; i < datos.getArregloString().length; i++) {
+let datos = new GestorDeArchivos('autos.txt');
+let arrayAutos = [];
+for (let i = 0; i < datos.getArregloString().length; i++) {
     agregarAuto(datos.getArregloString()[i], arrayAutos);
 }
 console.log(arrayAutos);
