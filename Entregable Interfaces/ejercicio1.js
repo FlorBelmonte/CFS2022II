@@ -1,11 +1,25 @@
-// interface Auto {
-//     arrancar(): void;
-//     acelerar(): void;
-// }
-var relojSumergible = /** @class */ (function () {
-    function relojSumergible() {
+var AutoFamiliar = /** @class */ (function () {
+    function AutoFamiliar() {
     }
-    return relojSumergible;
+    AutoFamiliar.prototype.arrancar = function () {
+        this.velocidadActual = 0;
+    };
+    AutoFamiliar.prototype.acelerar = function () {
+        this.velocidadActual += 50;
+    };
+    AutoFamiliar.prototype.getVelocidadActual = function () {
+        return this.velocidadActual;
+    };
+    return AutoFamiliar;
 }());
-var relojSwach = new relojSumergible(30, 3);
-console.log(relojSwach);
+var AutoCarreras = /** @class */ (function () {
+    function AutoCarreras() {
+    }
+    AutoCarreras.prototype.arrancar = function () {
+        console.log("el auto tiene tipo de encendido electrico..");
+    };
+    AutoCarreras.prototype.acelerar = function () {
+        console.log("el auto acelera de 0 a 100 en 5 segundos");
+    };
+    return AutoCarreras;
+}());
